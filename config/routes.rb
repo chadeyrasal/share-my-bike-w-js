@@ -2,9 +2,7 @@ Rails.application.routes.draw do
 
   root "welcome#home"
 
-  get "/renters/new", to: "renters#new", as: :signup
-
-  get "/owners/new", to: "owners#new", as: :owner_signup
+  get "/users/new", to: "users#new", as: :signup
 
   get "/login", to: "sessions#new"
 
@@ -12,8 +10,8 @@ Rails.application.routes.draw do
 
   delete "/logout", to: "sessions#destroy"
 
-  resources :renters, only: [:create]
+  resources :users, only: [:create]
 
-  resources :owners, only: [:create]
+  resources :bicycles, only: [:new, :create]
 
 end
