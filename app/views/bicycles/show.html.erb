@@ -1,5 +1,5 @@
 <h2><%= @bicycle.title %></h2>
-<h4><%= @bicycle.neighborhood.name %></h4>
+<h4><%= link_to @bicycle.neighborhood.name, neighborhood_path(@bicycle.neighborhood) %></h4>
 
 <p><%= @bicycle.bicycle_type %></p>
 <p><%= @bicycle.colour %></p>
