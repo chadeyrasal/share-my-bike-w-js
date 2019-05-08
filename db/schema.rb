@@ -10,51 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_07_181114) do
-
-  create_table "bicycles", force: :cascade do |t|
-    t.string "category"
-    t.string "size"
-    t.string "colour"
-    t.string "description"
-    t.string "country"
-    t.string "city"
-    t.integer "owner_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "owners", force: :cascade do |t|
-    t.string "name"
-    t.string "username"
-    t.string "email"
-    t.string "password_digest"
-    t.string "country"
-    t.string "city"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "renters", force: :cascade do |t|
-    t.string "name"
-    t.string "username"
-    t.string "email"
-    t.string "password_digest"
-    t.string "country"
-    t.string "city"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "trips", force: :cascade do |t|
-    t.datetime "start_date"
-    t.datetime "end_date"
-    t.integer "rating"
-    t.string "review"
-    t.integer "bicycle_id"
-    t.integer "renter_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 2019_05_07_180921) do
 
 end
