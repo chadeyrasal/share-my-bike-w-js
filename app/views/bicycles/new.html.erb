@@ -1,0 +1,26 @@
+<h2>New bicycle</h2>
+
+<%= form_for(@bicycle) do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
+  <%= f.label :bicycle_type %>
+  <%= f.text_field :bicycle_type %>
+
+  <%= f.label :size %>
+  <%= f.text_field :size %>
+
+  <%= f.label :colour %>
+  <%= f.text_field :colour %>
+
+  <%= f.label :price %>
+  <%= f.text_field :price %>
+
+  <%= f.label :neighborhood %>
+  <%= f.text_field :neighborhood %>
+
+  <%= f.submit %>
+<% end %>

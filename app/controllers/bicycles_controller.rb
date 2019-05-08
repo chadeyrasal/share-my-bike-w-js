@@ -5,6 +5,7 @@ class BicyclesController < ApplicationController
   end
 
   def new
+    @bicycle = Bicycle.new
   end
 
   def create
