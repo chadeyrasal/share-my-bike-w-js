@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:create]
 
-  resources :bicycles, only: [:new, :create, :index]
+  resources :bicycles, only: [:new, :create, :index, :show]
 
   resources :cities, only: [:index, :show]
 

@@ -1,1 +1,5 @@
-Bicycles Index List
+<ul>
+  <% @bicycles.each do |bicycle| %>
+    <li><%= link_to bicycle.title, bicycle_path(bicycle) %></li>
+  <% end %>
+</ul>
