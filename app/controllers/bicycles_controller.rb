@@ -6,6 +6,7 @@ class BicyclesController < ApplicationController
 
   def new
     @bicycle = Bicycle.new
+    @sizes = Bicycle::SIZE
   end
 
   def create
