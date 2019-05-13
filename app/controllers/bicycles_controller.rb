@@ -10,10 +10,23 @@ class BicyclesController < ApplicationController
   end
 
   def create
+    @bicycle = Bicycle.new(bicycle_params)
+    if @bicycle.save
+      redirect_to bicycle_path(@bicycle)
+    else
+      render :new
+    end
   end
 
   def show
     @bicycle = Bicycle.find_by(id: params[:id])
+  end
+
+
+  private
+
+  def bicycle_params
+    params.require(:bicycle).permit(:title, :description, :bicycle_type, :size, :colour, :price, :neighborhood)
   end
 
 end
