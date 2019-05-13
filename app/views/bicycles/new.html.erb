@@ -1,26 +1,55 @@
 <h2>New bicycle</h2>
 
 <%= form_for(@bicycle) do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
 
-  <%= f.label :description %>
-  <%= f.text_field :description %>
+  <% if @bicycle.errors.any? %>
+    <div id="error_explanation">
+      <h2>There were some errors:</h2>
+      <ul>
+        <% @bicycle.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-  <%= f.label :bicycle_type %>
-  <%= f.text_field :bicycle_type %>
+  <div class="field<%= " field_with_errors" if @bicycle.errors[:title].any? %>">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
 
-  <%= f.label :size %>
-  <%= f.select(:size, @sizes) %>
+  <div class="field<%= " field_with_errors" if @bicycle.errors[:description].any? %>">
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
 
-  <%= f.label :colour %>
-  <%= f.text_field :colour %>
+  <div class="field<%= " field_with_errors" if @bicycle.errors[:bicycle_type].any? %>">
+    <%= f.label :bicycle_type %>
+    <%= f.text_field :bicycle_type %>
+  </div>
 
-  <%= f.label :price %>
-  <%= f.text_field :price %>
+  <div class="field<%= " field_with_errors" if @bicycle.errors[:size].any? %>">
+    <%= f.label :size %>
+    <%= f.select(:size, @sizes) %>
+  </div>
 
-  <%= f.label :neighborhood %>
-  <%= f.text_field :neighborhood %>
+  <div class="field<%= " field_with_errors" if @bicycle.errors[:colour].any? %>">
+    <%= f.label :colour %>
+    <%= f.text_field :colour %>
+  </div>
 
-  <%= f.submit %>
+  <div class="field<%= " field_with_errors" if @bicycle.errors[:price].any? %>">
+    <%= f.label :price %>
+    <%= f.text_field :price %>
+  </div>
+
+  <div class="field<%= " field_with_errors" if @bicycle.errors[:neighborhood].any? %>">
+    <%= f.label :neighborhood %>
+    <%= f.text_field :neighborhood %>
+  </div>
+
+  <div class="field_action">
+    <%= f.submit %>
+  </div>
+
 <% end %>
