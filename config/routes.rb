@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
   resources :cities, only: [:index, :show] do
     resources :neighborhoods, only: [:show]
+    resources :bicycles, only: [:index]
   end
 
 end
