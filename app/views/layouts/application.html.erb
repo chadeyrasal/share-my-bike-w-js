@@ -10,6 +10,12 @@
   </head>
 
   <body>
+    <% if logged_in? %>
+      <%= link_to "Home", root_path %>
+      <%= link_to "Trips", user_trips_path %>
+      <%= link_to "Account", user_path %>
+      <%= link_to "Logout", logout_path %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
