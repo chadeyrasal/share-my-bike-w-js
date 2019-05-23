@@ -10,8 +10,8 @@
   </head>
 
   <body>
+    <%= link_to "Home", root_path %>
     <% if logged_in? %>
-      <%= link_to "Home", root_path %>
       <%= link_to "Logout", logout_path %>
     <% else %>
       <%= link_to "Signup", signup_path %>
