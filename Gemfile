@@ -31,6 +31,8 @@ gem 'omniauth'
 
 gem 'omniauth-google-oauth2'
 
+gem 'omniauth-twitter'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
