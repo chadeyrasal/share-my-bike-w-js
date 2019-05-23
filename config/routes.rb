@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   get "/logout", to: "sessions#destroy"
 
+  get "/auth/facebook/callback", to: "sessions#create"
+
   resources :users, only: [:create, :show] do
     resources :trips, only: [:index, :show]
     resources :bicycles, only: [:index, :show, :new, :create, :edit, :update, :destroy]
