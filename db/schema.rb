@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_08_154521) do
+ActiveRecord::Schema.define(version: 2019_05_23_182145) do
 
   create_table "bicycles", force: :cascade do |t|
     t.string "bicycle_type"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 2019_05_08_154521) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "uid"
   end
 
 end
