@@ -5,10 +5,12 @@ class SessionsController < ApplicationController
   end
 
   def create
-    Raise params.inspect
+    puts params.inspect
   end
 
   def destroy
+    session.delete :user_id
+    redirect_to root_path
   end
 
 end
