@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :trips, through: :bicycles
   has_many :reservations, foreign_key: :renter_id, class_name: "Trip"
 
+  validates :full_name, :email, presence: true
   validates :email, uniqueness: true
 
 
