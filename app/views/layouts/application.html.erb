@@ -18,5 +18,11 @@
       <%= link_to "Login", login_path %>
     <% end %>
     <%= yield %>
+
+    <div>
+      <% if !!current_user %>
+        You are logged in as: <%= current_user.full_name %>
+      <% end %>
+    </div>
   </body>
 </html>
