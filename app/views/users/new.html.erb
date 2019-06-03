@@ -13,22 +13,24 @@
     </div>
   <% end %>
 
-  <div class="field<%= " field_with_errors" if @user.errors[:full_name].any? %>">
+
+
+  <div class="field">
     <%= f.label :full_name %><br>
     <%= f.text_field :full_name %>
   </div>
 
-  <div class="field<%= " field_with_errors" if @user.errors[:username].any? %>">
+  <div class="field">
     <%= f.label :username %><br>
     <%= f.text_field :username %>
   </div>
 
-  <div class="field<%= " field_with_errors" if @user.errors[:email].any? %>">
+  <div class="field">
     <%= f.label :email %><br>
     <%= f.email_field :email %>
   </div>
 
-  <div class="field<%= " field_with_errors" if @user.errors[:password].any? %>">
+  <div class="field">
     <%= f.label :password %><br>
     <%= f.password_field :password %>
   </div>
