@@ -1,19 +1,41 @@
 <h2>Sign Up here</h2>
 
 <%= form_for(@user) do |f| %>
-  <%= f.label :full_name %>
-  <%= f.text_field :full_name %>
 
-  <%= f.label :username %>
-  <%= f.text_field :username %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2>There were some errors:</h2>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-  <%= f.label :email %>
-  <%= f.email_field :email %>
+  <div class="field<%= " field_with_errors" if @user.errors[:full_name].any? %>">
+    <%= f.label :full_name %><br>
+    <%= f.text_field :full_name %>
+  </div>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %>
+  <div class="field<%= " field_with_errors" if @user.errors[:username].any? %>">
+    <%= f.label :username %><br>
+    <%= f.text_field :username %>
+  </div>
 
-  <%= f.submit "Sign Up" %>
+  <div class="field<%= " field_with_errors" if @user.errors[:email].any? %>">
+    <%= f.label :email %><br>
+    <%= f.email_field :email %>
+  </div>
+
+  <div class="field<%= " field_with_errors" if @user.errors[:password].any? %>">
+    <%= f.label :password %><br>
+    <%= f.password_field :password %>
+  </div>
+
+  <div class="field_action">
+    <%= f.submit "Sign Up" %>
+  </div>
 <% end %>
 
 <br><br>
