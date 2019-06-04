@@ -15,6 +15,6 @@
 
 <ul>
   <% @city.bicycles.each do |bicycle| %>
-    <li><%= bicycle.title %></li>
+    <li><%= link_to bicycle.title, bicycle_path(bicycle) %></li>
   <% end %>
 </ul>
