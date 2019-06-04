@@ -5,9 +5,4 @@ class City < ApplicationRecord
   has_many :bicycles
   has_many :bicycles, through: :neighborhoods
 
-
-  def self.alphabetically
-    self.order("NAME ASC")
-  end
-
 end
