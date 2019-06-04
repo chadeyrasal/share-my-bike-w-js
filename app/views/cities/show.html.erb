@@ -1,0 +1,12 @@
+<h2><%= @city.name %></h2>
+
+<h4>A selection of neighborhoods for your trips</h4>
+
+<ul>
+  <% @city.neighborhoods.each do |nghb| %>
+    <li><%= nghb.name %></li>
+  <% end %>
+</ul>
+
+
+<h4>A selection of bicycles in the city</h4>
