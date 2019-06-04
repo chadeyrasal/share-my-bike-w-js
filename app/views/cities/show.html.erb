@@ -4,9 +4,17 @@
 
 <ul>
   <% @city.neighborhoods.each do |nghb| %>
-    <li><%= nghb.name %></li>
+    <li><%= link_to nghb.name, city_neighborhood_path(@city, nghb) %></li>
   <% end %>
 </ul>
 
+<%= link_to "See all neighborhoods...", city_neighborhoods_path(@city) %>
+
 
 <h4>A selection of bicycles in the city</h4>
+
+<ul>
+  <% @city.bicycles.each do |bicycle| %>
+    <li><%= bicycle.title %></li>
+  <% end %>
+</ul>
