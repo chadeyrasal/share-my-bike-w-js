@@ -13,38 +13,38 @@
     </div>
   <% end %>
 
-  <div class="field<%= " field_with_errors" if @bicycle.errors[:title].any? %>">
-    <%= f.label :title %>
+  <div class="field">
+    <%= f.label :title %><br>
     <%= f.text_field :title %>
   </div>
 
-  <div class="field<%= " field_with_errors" if @bicycle.errors[:description].any? %>">
-    <%= f.label :description %>
+  <div class="field">
+    <%= f.label :description %><br>
     <%= f.text_field :description %>
   </div>
 
-  <div class="field<%= " field_with_errors" if @bicycle.errors[:bicycle_type].any? %>">
-    <%= f.label :bicycle_type %>
+  <div class="field">
+    <%= f.label :bicycle_type, "Type" %><br>
     <%= f.text_field :bicycle_type %>
   </div>
 
-  <div class="field<%= " field_with_errors" if @bicycle.errors[:size].any? %>">
-    <%= f.label :size %>
+  <div class="field">
+    <%= f.label :size %><br>
     <%= f.select(:size, @sizes) %>
   </div>
 
-  <div class="field<%= " field_with_errors" if @bicycle.errors[:colour].any? %>">
-    <%= f.label :colour %>
+  <div class="field">
+    <%= f.label :colour %><br>
     <%= f.text_field :colour %>
   </div>
 
-  <div class="field<%= " field_with_errors" if @bicycle.errors[:price].any? %>">
-    <%= f.label :price %>
+  <div class="field">
+    <%= f.label :price %><br>
     <%= f.text_field :price %>
   </div>
 
-  <div class="field<%= " field_with_errors" if @bicycle.errors[:neighborhood].any? %>">
-    <%= f.label :neighborhood %>
+  <div class="field">
+    <%= f.label :neighborhood %><br>
     <%= f.text_field :neighborhood %>
   </div>
 
