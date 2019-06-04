@@ -25,7 +25,7 @@
 
   <div class="field">
     <%= f.label :bicycle_type, "Type" %><br>
-    <%= f.text_field :bicycle_type %>
+    <%= f.select(:bicycle_type, @types) %>
   </div>
 
   <div class="field">

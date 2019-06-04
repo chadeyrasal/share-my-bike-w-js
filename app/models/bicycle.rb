@@ -11,6 +11,6 @@ class Bicycle < ApplicationRecord
 
   SIZE = ["Small", "Medium", "Large"]
 
-  TYPE = ["City", "Dutch", "Folding", "Hybrid / Trekking", "Mountain", "Road", "E-City", "E-Hybrid / E-Touring", "E-Mountain", "E-Road"]
+  TYPE = ["City", "Dutch", "Folding", "Hybrid / Trekking", "Mountain", "Road", "Triathlon", "E-City", "E-Hybrid / E-Touring", "E-Mountain", "E-Road"]
 
 end
