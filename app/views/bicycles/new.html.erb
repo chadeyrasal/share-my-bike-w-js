@@ -39,8 +39,18 @@
   </div>
 
   <div class="field">
-    <%= f.label :price %><br>
+    <%= f.label :price, "Price in Sterling Pounds" %><br>
     <%= f.text_field :price %>
+  </div>
+
+  <div class="field">
+    <%= f.label :country %><br>
+    <%= f.collection_select(:country_id, @countries, :id, :name) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
   </div>
 
   <div class="field">

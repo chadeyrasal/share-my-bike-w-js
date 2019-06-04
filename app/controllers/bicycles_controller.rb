@@ -9,6 +9,8 @@ class BicyclesController < ApplicationController
     @bicycle = @user.bicycles.build
     @sizes = Bicycle::SIZE
     @types = Bicycle::TYPE
+    @countries = Country.alphabetically
+    @cities = City.alphabetically
   end
 
   def create
