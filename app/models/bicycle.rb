@@ -1,6 +1,7 @@
 class Bicycle < ApplicationRecord
 
   belongs_to :neighborhood
+  belongs_to :city
   belongs_to :country
   belongs_to :owner, class_name: "User"
   has_many :trips
