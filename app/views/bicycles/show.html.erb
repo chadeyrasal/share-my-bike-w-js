@@ -1,7 +1,8 @@
 <h2><%= @bicycle.title %></h2>
+
 <h4>
   <%= link_to @bicycle.neighborhood.name, city_neighborhood_path(@bicycle.neighborhood.city, @bicycle.neighborhood) %>,
-  <%= link_to @bicycle.neighborhood.city.name, city_path(@bicycle.neighborhood.city)%>
+  <%= link_to @bicycle.city.name, city_path(@bicycle.city)%>
 </h4>
 
 
