@@ -2,7 +2,7 @@ class CitiesController < ApplicationController
 
   def index
     @cities = City.all
-    @countries = Country.all
+    @countries = Country.alphabetically
   end
 
   def show

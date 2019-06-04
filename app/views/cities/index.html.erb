@@ -1,11 +1,3 @@
-<ul>
-  <% @cities.each do |city| %>
-    <li><%= link_to "#{city.name}, #{city.country}", city_path(city) %>:
-      <ul>
-        <% city.neighborhoods.each do |neighborhood| %>
-          <li><%= neighborhood.name %></li>
-        <% end %>
-      </ul>
-    </li>
-  <% end %>
-</ul>
+<%= @countries %>
+
+<%= @cities %>
