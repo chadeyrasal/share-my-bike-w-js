@@ -1,10 +1,21 @@
 <h2><%= @bicycle.title %></h2>
-<h4><%= link_to @bicycle.neighborhood.name, neighborhood_path(@bicycle.neighborhood) %></h4>
+<h4>
+  <%= link_to @bicycle.neighborhood.name, city_neighborhood_path(@bicycle.neighborhood.city, @bicycle.neighborhood) %>,
+  <%= link_to @bicycle.neighborhood.city.name, city_path(@bicycle.neighborhood.city)%>
+</h4>
 
-<p><%= @bicycle.bicycle_type %></p>
-<p><%= @bicycle.colour %></p>
-<p><%= @bicycle.size %></p>
-Size Chart here
+
+<p>Type: <%= @bicycle.bicycle_type %></p>
+<p>Colour: <%= @bicycle.colour %></p>
+<p>Size: <%= @bicycle.size %></p>
+
+<div>
+  Size Chart: <br>
+  <ul>
+    <li>Small: 45-50cm frame - Suits people 1.45-1.60m</li>
+    <li>Medium: 50-55cm frame - Suits people 1.60-1.75m</li>
+    <li>Large: 55-60cm frame - Suits people 1.75-1.90m</li>
+  </ul>
+</div>
+
 <p><%= @bicycle.description %></p>
-
-<%= @bicycle.owner.username %>
