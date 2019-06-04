@@ -1,6 +1,6 @@
 <h2>New bicycle</h2>
 
-<%= form_for(@bicycle) do |f| %>
+<%= form_for [@user, @bicycle] do |f| %>
 
   <% if @bicycle.errors.any? %>
     <div id="error_explanation">

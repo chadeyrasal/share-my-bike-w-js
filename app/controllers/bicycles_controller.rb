@@ -5,7 +5,8 @@ class BicyclesController < ApplicationController
   end
 
   def new
-    @bicycle = Bicycle.new
+    @user = User.find(params[:user_id])
+    @bicycle = @user.bicycles.build
     @sizes = Bicycle::SIZE
   end
 
