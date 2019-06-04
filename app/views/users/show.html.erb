@@ -1,3 +1,19 @@
-User Show Page
+<h2><%= @user.full_name %></h2>
 
-Personal Page of <%= @user %>
+<h4>Your last trips</h4>
+
+<% if @user.trips.empty? %>
+  You haven't booked any trip yet...
+<% else %>
+  <%= link_to "See all your trips...", user_trips_path(@user) %>
+<% end %>
+
+<h4>Your bicycles</h4>
+
+<% if @user.bicycles.empty? %>
+  You haven't got any bicycle to rent...
+<% else %>
+  <%= link_to "See all your bicycles...", user_bicycles_path(@user) %>
+<% end %>
+
+<p><%= link_to "Add a bicycle", new_user_bicycle_path(@user) %></p>
