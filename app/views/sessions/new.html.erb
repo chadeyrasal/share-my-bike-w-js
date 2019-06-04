@@ -1,15 +1,25 @@
 <h2>Login to your account</h2>
 
 <%= form_tag(sessions_path) do %>
-  <%= label_tag :email %>
-  <%= email_field_tag :email %>
 
-  <%= label_tag :password %>
-  <%= password_field_tag :password %>
+  <div class="field">
+    <%= label_tag :email %><br>
+    <%= email_field_tag :email %>
+  </div>
 
-  <%= submit_tag("Login") %>
+  <div class="field">
+    <%= label_tag :password %><br>
+    <%= password_field_tag :password %>
+  </div>
+
+  <div class="field_action">
+    <%= submit_tag("Login") %>
+  </div>
+
 <% end %>
 
-<br><br>
+<br>
 
-or <%= link_to "Log in with Facebook", "/auth/facebook" %>
+<p>or <%= link_to "Log in with Facebook", "/auth/facebook" %></p>
+
+<p> <%= link_to "No account yet?", signup_path %> </p>
