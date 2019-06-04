@@ -1,3 +1,12 @@
-<%= @countries %>
-
-<%= @cities %>
+<ul>
+  <% @countries.each do |country| %>
+    <li>
+      <%= country.name %>:
+        <ul>
+          <% country.cities.each do |city| %>
+            <li><%= city.name %></li>
+          <% end %>
+        </ul>
+    </li>
+  <% end %>
+</ul>
