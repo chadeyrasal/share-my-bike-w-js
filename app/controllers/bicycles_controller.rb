@@ -13,9 +13,10 @@ class BicyclesController < ApplicationController
   end
 
   def create
-    @bicycle = Bicycle.new(bicycle_params)
-    if @bicycle.save
-      redirect_to bicycle_path(@bicycle)
+    @user = User.find(params[:user_id])
+    @user.bicycles.build(bicycle_params)
+    if @user.save
+      redirect_to bicycle_path(@user.bicycles.last)
     else
       render :new
     end
