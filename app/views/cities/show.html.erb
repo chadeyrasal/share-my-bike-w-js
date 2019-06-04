@@ -8,7 +8,11 @@
   <% end %>
 </ul>
 
-<%= link_to "See all neighborhoods...", city_neighborhoods_path(@city) %>
+<% if @city.neighborhoods.empty? %>
+  No neighborhoods have been listed for <%= @city.name %> yet...
+<% else %>
+  <%= link_to "See all neighborhoods...", city_neighborhoods_path(@city) %>
+<% end %>
 
 
 <h4>A selection of bicycles in the city</h4>
@@ -19,4 +23,8 @@
   <% end %>
 </ul>
 
-<%= link_to "See all bicycles...", city_bicycles_path(@city) %>
+<% if @city.bicycles.empty? %>
+  No bicycles have been listed for <%= @city.name %> yet...
+<% else %>
+  <%= link_to "See all bicycles...", city_bicycles_path(@city) %>
+<% end %>
