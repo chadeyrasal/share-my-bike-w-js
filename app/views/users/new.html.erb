@@ -1,4 +1,4 @@
-<h2>Sign Up here</h2>
+<h2>Create an account</h2>
 
 <%= form_for(@user) do |f| %>
 
@@ -42,4 +42,6 @@
 
 <br><br>
 
-or <%= link_to "Log in with Facebook", "/auth/facebook" %>
+<p>or <%= link_to "Log in with Facebook", "/auth/facebook" %></p>
+
+<p><%= link_to "Already have an account?", login_path %></p>
