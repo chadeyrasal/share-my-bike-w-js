@@ -33,6 +33,7 @@ class BicyclesController < ApplicationController
 
   def show
     @bicycle = Bicycle.find_by(id: params[:id])
+    @user = User.find(params[:user_id]) if params[:user_id]
   end
 
   def edit
