@@ -1,1 +1,12 @@
-Neighborhood Show Page
+<h2><%= @neighborhood.name %></h2>
+<h4><%= @city.name %>, <%= @city.country.name %></h4>
+
+<h3>All bicycles available in <%= @neighborhood.name %></h3>
+
+<ul>
+  <% @neighborhood.bicycles.each do |bicycle| %>
+    <li><%= link_to bicycle.title, bicycle_path(bicycle) %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Back to #{@city.name} neighborhoods", city_neighborhoods_path(@city, @neighborhood) %>
