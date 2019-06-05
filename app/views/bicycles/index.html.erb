@@ -10,4 +10,6 @@
 
 <% if @city %>
   <%= link_to "Back to #{@city.name}", city_path(@city) %>
+<% elsif @user %>
+  <%= link_to "Back to your account", user_path(current_user) %>
 <% end %>
