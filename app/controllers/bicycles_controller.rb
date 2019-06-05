@@ -1,8 +1,13 @@
 class BicyclesController < ApplicationController
 
   def index
-    @city = City.find(params[:city_id])
-    @bicycles = @city.bicycles
+    if params[:city_id]
+      @city = City.find(params[:city_id])
+      @bicycles = @city.bicycles
+    elsif params[:user_id]
+      @user = User.find(params[:user_id])
+      @bicycles = @user.bicycles
+    end
   end
 
   def new
