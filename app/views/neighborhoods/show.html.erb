@@ -9,4 +9,8 @@
   <% end %>
 </ul>
 
-<%= link_to "Back to #{@city.name} neighborhoods", city_neighborhoods_path(@city, @neighborhood) %>
+<% if @neighborhood.bicycles.empty? %>
+  <p>No bicycles have been listed for <%= @neighborhood.name %> yet...</p>
+<% end %>
+
+<p><%= link_to "Back to #{@city.name} neighborhoods", city_neighborhoods_path(@city, @neighborhood) %></p>
