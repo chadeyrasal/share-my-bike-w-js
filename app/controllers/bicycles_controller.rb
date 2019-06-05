@@ -1,7 +1,8 @@
 class BicyclesController < ApplicationController
 
   def index
-    @bicycles = Bicycle.all
+    @city = City.find(params[:city_id])
+    @bicycles = @city.bicycles
   end
 
   def new
