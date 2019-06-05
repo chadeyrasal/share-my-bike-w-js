@@ -9,7 +9,6 @@
   <%= link_to @bicycle.city.name, city_path(@bicycle.city)%>
 </h4>
 
-
 <p>Type: <%= @bicycle.bicycle_type %></p>
 <p>Colour: <%= @bicycle.colour %></p>
 <p>Size: <%= @bicycle.size %></p>
@@ -26,6 +25,8 @@
 <p><%= @bicycle.description %></p>
 
 <p>Price: £<%= @bicycle.price %> / day</p>
+
+<p><button type="button" name="book-button"><%= link_to "Rent this bicycle", new_user_trip_path(@user) %></button></p>
 <p>Check In: </p>
 <p>Check Out: </p>
 <p>Form for the booking</p>
