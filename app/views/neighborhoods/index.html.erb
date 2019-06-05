@@ -1,0 +1,9 @@
+<h2>All <%= @city.name %> neighborhoods</h2>
+
+<ul>
+  <% @neighborhoods.each do |nghb| %>
+    <li><%= link_to nghb.name, city_neighborhood_path(@city, nghb) %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Back to #{@city.name}", city_path(@city) %>
