@@ -8,4 +8,6 @@
   <p>There are no bicycles listed in <%= @city.name %> yet...</p>
 <% end %>
 
-<%= link_to "Back to #{@city.name}", city_path(@city) %>
+<% if @city %>
+  <%= link_to "Back to #{@city.name}", city_path(@city) %>
+<% end %>
