@@ -11,6 +11,8 @@ class TripsController < ApplicationController
   end
 
   def new
+    @trip = Trip.new
+    @user = User.find(params[:user_id])
   end
 
   def create
