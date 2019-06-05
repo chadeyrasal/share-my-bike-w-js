@@ -1,7 +1,13 @@
 class TripsController < ApplicationController
 
   def index
-    @trips = Trip.all
+    if params[:user_id]
+      @user = User.find(params[:user_id])
+      if @user != current_user
+        redirect_to root_path
+      end
+      @trips = @user.trips
+    end
   end
 
   def show
