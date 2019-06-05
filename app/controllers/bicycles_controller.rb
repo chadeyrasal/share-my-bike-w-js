@@ -6,8 +6,8 @@ class BicyclesController < ApplicationController
   end
 
   def new
-    @user = User.find(params[:user_id])
-    @bicycle = @user.bicycles.build
+    @user = current_user
+    @bicycle = @user.bicycles.new
     @sizes = Bicycle::SIZE
     @types = Bicycle::TYPE
     @countries = Country.alphabetically
@@ -15,9 +15,12 @@ class BicyclesController < ApplicationController
 
   def create
     @user = User.find(params[:user_id])
-    @user.bicycles.build(bicycle_params)
-    if @user.save
-      redirect_to bicycle_path(@user.bicycles.last)
+    @bicycle = @user.bicycles.new(bicycle_params)
+    @country = Country.find(params[:bicycle][:country_id])
+    @bicycle.city = @country.cities.find_or_create_by(name: params[:bicycle][:city])
+    @bicycle.neighborhood = @bicycle.city.neighborhoods.find_or_create_by(name: params[:bicycle][:neighborhood])
+    if @bicycle.save
+      redirect_to bicycle_path(@bicycle)
     else
       render :new
     end
@@ -40,7 +43,7 @@ class BicyclesController < ApplicationController
   private
 
   def bicycle_params
-    params.require(:bicycle).permit(:title, :description, :bicycle_type, :size, :colour, :price, :neighborhood, :city, :country)
+    params.require(:bicycle).permit(:title, :description, :bicycle_type, :size, :colour, :price, :country_id)
   end
 
 end
