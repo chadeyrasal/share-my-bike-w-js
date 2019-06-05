@@ -10,6 +10,12 @@
 
 <h4>Your bicycles</h4>
 
+<ul>
+  <% @user.bicycles.each do |bicycle| %>
+    <li><%= link_to bicycle.title, user_bicycle_path(@user, bicycle) %></li>
+  <% end %>
+</ul>
+
 <% if @user.bicycles.empty? %>
   You haven't got any bicycle to rent...
 <% else %>
