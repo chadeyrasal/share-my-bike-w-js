@@ -1,15 +1,29 @@
-<ul>
-  <% @bicycles.each do |bicycle| %>
-    <li><%= link_to bicycle.title, bicycle_path(bicycle) %></li>
-  <% end %>
-</ul>
-
-<% if @bicycles.empty? %>
-  <p>There are no bicycles listed in <%= @city.name %> yet...</p>
-<% end %>
-
 <% if @city %>
+
+  <% if @bicycles.empty? %>
+    <p>There are no bicycles listed in <%= @city.name %> yet...</p>
+  <% else %>
+    <ul>
+      <% @bicycles.each do |bicycle| %>
+        <li><%= link_to bicycle.title, bicycle_path(bicycle) %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
   <%= link_to "Back to #{@city.name}", city_path(@city) %>
+
 <% elsif @user %>
+
+  <% if @bicycle.empty? %>
+    <% redirect_to user_path(current_user) %>
+  <% else %>
+    <ul>
+      <% @bicycles.each do |bicycle| %>
+        <li><%= link_to bicycle.title, user_bicycle_path(@user, bicycle) %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
   <%= link_to "Back to your account", user_path(current_user) %>
+
 <% end %>
