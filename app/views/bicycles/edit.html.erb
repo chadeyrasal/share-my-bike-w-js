@@ -1,1 +1,74 @@
-Edit a bicycle form
+<h2>Edit this bicycle</h2>
+
+<%= form_for [@user, @bicycle] do |f| %>
+
+  <% if @bicycle.errors.any? %>
+    <div id="error_explanation">
+      <h2>There were some errors:</h2>
+      <ul>
+        <% @bicycle.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :bicycle_type, "Type" %><br>
+    <%= f.select(:bicycle_type, @types) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :size %><br>
+    <%= f.select(:size, @sizes) %>
+  </div>
+
+  <div>
+    Size Chart:
+    <ul>
+      <li>Small: 45-50cm frame - Suits people 1.45-1.60m</li>
+      <li>Medium: 50-55cm frame - Suits people 1.60-1.75m</li>
+      <li>Large: 55-60cm frame - Suits people 1.75-1.90m</li>
+    </ul>
+  </div>
+
+  <div class="field">
+    <%= f.label :colour %><br>
+    <%= f.text_field :colour %>
+  </div>
+
+  <div class="field">
+    <%= f.label :price, "Price in Sterling Pounds" %><br>
+    <%= f.text_field :price %>
+  </div>
+
+  <div class="field">
+    <%= f.label :country %><br>
+    <%= f.collection_select(:country_id, @countries, :id, :name) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+  </div>
+
+  <div class="field">
+    <%= f.label :neighborhood %><br>
+    <%= f.text_field :neighborhood %>
+  </div>
+
+  <div class="field_action">
+    <%= f.submit %>
+  </div>
+
+<% end %>
