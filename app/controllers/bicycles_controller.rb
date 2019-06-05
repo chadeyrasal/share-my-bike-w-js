@@ -13,8 +13,8 @@ class BicyclesController < ApplicationController
   def new
     @user = current_user
     @bicycle = @user.bicycles.new
-    @sizes = Bicycle::SIZE
     @types = Bicycle::TYPE
+    @sizes = Bicycle::SIZE
     @countries = Country.alphabetically
   end
 
@@ -39,6 +39,9 @@ class BicyclesController < ApplicationController
   def edit
     @bicycle = Bicycle.find_by(id: params[:id])
     @user = User.find(params[:user_id]) if params[:user_id]
+    @types = Bicycle::TYPE
+    @sizes = Bicycle::SIZE
+    @countries = Country.alphabetically
     redirect_to root_path if @user != current_user
   end
 
