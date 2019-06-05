@@ -59,12 +59,12 @@
 
   <div class="field">
     <%= f.label :city %><br>
-    <%= f.text_field :city %>
+    <%= f.text_field :city, value: @bicycle.city.name %>
   </div>
 
   <div class="field">
     <%= f.label :neighborhood %><br>
-    <%= f.text_field :neighborhood %>
+    <%= f.text_field :neighborhood, value: @bicycle.neighborhood.name %>
   </div>
 
   <div class="field_action">
