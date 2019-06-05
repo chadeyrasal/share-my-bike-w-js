@@ -37,6 +37,9 @@ class BicyclesController < ApplicationController
   end
 
   def edit
+    @bicycle = Bicycle.find_by(id: params[:id])
+    @user = User.find(params[:user_id]) if params[:user_id]
+    redirect_to root_path if @user != current_user
   end
 
   def update
