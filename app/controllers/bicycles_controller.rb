@@ -46,6 +46,16 @@ class BicyclesController < ApplicationController
   end
 
   def update
+    @bicycle = Bicycle.find(params[:id])
+    @bicycle.update(bicycle_params)
+    @country = Country.find(params[:bicycle][:country_id])
+    @bicycle.city = @country.cities.find_or_create_by(name: params[:bicycle][:city])
+    @bicycle.neighborhood = @bicycle.city.neighborhoods.find_or_create_by(name: params[:bicycle][:neighborhood])
+    if @bicycle.save
+      redirect_to user_bicycle_path(@bicycle.owner, @bicycle)
+    else
+      render :edit
+    end
   end
 
   def destroy
