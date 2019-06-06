@@ -1,7 +1,7 @@
 <h2>Rent this bicycle</h2>
 <%= link_to @bicycle.title, bicycle_path(@bicycle) %> at £<%= @bicycle.price %> per day
 
-<%= form_for [@bicycle, @trip], url: bicycle_trips_path(@bicycle) do |f| %>
+<%= form_for [@bicycle, @trip] do |f| %>
 
   <% if @trip.errors.any? %>
     <div id="error_explanation">
@@ -23,6 +23,10 @@
     <%= f.label :end_date %><br>
     <%= f.date_field :end_date %>
   </div><br>
+
+  <%= f.hidden_field :bicycle_id %>
+
+  <%= f.hidden_field :renter_id %>
 
   <div class="field-action">
     <%= f.submit "Rent this bicycle" %>

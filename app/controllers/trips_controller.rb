@@ -11,12 +11,19 @@ class TripsController < ApplicationController
   end
 
   def new
-    @trip = Trip.new
     @bicycle = Bicycle.find(params[:bicycle_id])
-    @user = current_user
+    @trip = @bicycle.trips.new
   end
 
   def create
+    @bicycle = Bicycle.find(params[:bicycle_id])
+    @trip = @bicycle.trips.new(trip_params)
+    @trip.renter_id = current_user.id
+    if @trip.save
+      redirect_to user_trip_path(@trip.renter, @trip)
+    else
+      render :new
+    end
   end
 
   def show
@@ -27,6 +34,13 @@ class TripsController < ApplicationController
   end
 
   def update
+  end
+
+
+  private
+
+  def trip_params
+    params.require(:trip).permit(:start_date, :end_date, :bicycle_id)
   end
 
 end
