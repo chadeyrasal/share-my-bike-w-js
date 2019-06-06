@@ -13,4 +13,9 @@ class Bicycle < ApplicationRecord
 
   TYPE = ["City", "Dutch", "Folding", "Hybrid / Trekking", "Mountain", "Road", "Triathlon", "E-City", "E-Hybrid / E-Touring", "E-Mountain", "E-Road"]
 
+  def average
+    total = 0
+    array = self.trips.collect{|trip| total += trip.rating}
+    total / array.size
+  end
 end
