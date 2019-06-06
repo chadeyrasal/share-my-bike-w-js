@@ -1,4 +1,19 @@
-<h2>Add a review for your city trip</h2>
+<h2>Add a review for your <%= @bicycle.city.name %> trip</h2>
+
+<%= link_to @bicycle.title, bicycle_path(@bicycle) %>
+
+<%= form_for [@user, @trip] do |f| %>
+
+  <div class="field">
+    <%= f.label :rating %><br>
+    <%= f.collection_radio_button :rating,  %>
+  </div>
+
+  <div class="action-field">
+    <%= f.submit "Add review" %>
+  </div>
+
+<% end %>
 
 <p>Rating:</p>
 
