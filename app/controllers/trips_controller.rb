@@ -6,7 +6,7 @@ class TripsController < ApplicationController
       if @user != current_user
         redirect_to root_path
       end
-      @trips = @user.trips
+      @trips = @user.reservations
     end
   end
 

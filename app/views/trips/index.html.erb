@@ -1,1 +1,14 @@
-Trips index page
+<h2>All your trips</h2>
+
+<ul>
+  <% @trips.each do |trip| %>
+    <li>
+      You rented: <%= link_to trip.bicycle.title, user_trip_path(@user, trip) %><br>
+      In: <%= link_to trip.bicycle.neighborhood.name, city_neighborhood_path(trip.bicycle.city, trip.bicycle.neighborhood) %>,
+      <%= link_to trip.bicycle.city.name, city_path(trip.bicycle.city) %><br>
+      From: <%= trip.start_date.to_formatted_s(:long) %><br>
+      To: <%= trip.end_date.to_formatted_s(:long) %><br>
+      <%= link_to "See detail", user_trip_path(@user, trip) %>
+    </li>
+  <% end %>
+</ul>
