@@ -9,7 +9,12 @@
   <%= link_to @bicycle.city.name, city_path(@bicycle.city)%>
 </h4>
 
-<p>Rating: <%= @bicycle.average %></p>
+<% array = @bicycle.trips.collect{|trip| trip.rating} %>
+<% total = 0 %>
+<% array.each{|element| total += element} %>
+<% avg = total / array.size %>
+
+<p>Rating: <%= 9 / 2 %></p>
 <p>Price: £<%= @bicycle.price %> / day</p>
 <p>Type: <%= @bicycle.bicycle_type %></p>
 <p>Colour: <%= @bicycle.colour %></p>
