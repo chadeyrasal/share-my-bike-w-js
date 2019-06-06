@@ -9,5 +9,5 @@
   Rating: <%= @trip.rating %>
   Review: <%= @trip.review %>
 <% else %>
-  <p><button type="button" name="review-button"><%= link_to "Add a review", edit_bicycle_trip_path(@trip.bicycle, @trip) %></button></p>
+  <p><button type="button" name="review-button"><%= link_to "Add a review", edit_user_trip_path(@trip.renter, @trip) %></button></p>
 <% end %>
