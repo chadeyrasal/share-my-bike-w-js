@@ -2,12 +2,27 @@
 
 <%= link_to @bicycle.title, bicycle_path(@bicycle) %>
 
+<br><br>
+
 <%= form_for [@user, @trip] do |f| %>
 
   <div class="field">
     <%= f.label :rating %><br>
-    <%= f.collection_radio_buttons :rating,  %>
-  </div>
+    <%= f.radio_button :rating, '1' %>1
+    <%= f.radio_button :rating, '2' %>2
+    <%= f.radio_button :rating, '3' %>3
+    <%= f.radio_button :rating, '4' %>4
+    <%= f.radio_button :rating, '5' %>5
+  </div> <br>
+
+  <div class="field">
+    <%= f.label :review %><br>
+    <%= f.text_field :review %>
+  </div> <br>
+
+  <%= f.hidden_field :bicycle_id %>
+
+  <%= f.hidden_field :renter_id %>
 
   <div class="action-field">
     <%= f.submit "Add review" %>
