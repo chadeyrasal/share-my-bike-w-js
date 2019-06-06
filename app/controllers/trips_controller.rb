@@ -28,16 +28,24 @@ class TripsController < ApplicationController
 
   def show
     @user = User.find(params[:user_id])
-    @trip = Trip.find_by(id: params[:id])
+    @trip = Trip.find(params[:id])
   end
 
   def edit
-    @trip = Trip.find_by(id: params[:id])
+    @trip = Trip.find(params[:id])
     @user = @trip.renter
     @bicycle = @trip.bicycle
   end
 
   def update
+    @trip = Trip.find(params[:id])
+    @trip.rating = params[:trip][:rating]
+    @trip.review = params[:trip][:review]
+    if @trip.save
+      redirect_to user_trip_path(@trip.renter, @trip)
+    else
+      render :edit
+    end
   end
 
 
