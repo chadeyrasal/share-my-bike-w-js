@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_04_151648) do
+ActiveRecord::Schema.define(version: 2019_06_06_105620) do
 
   create_table "bicycles", force: :cascade do |t|
     t.string "bicycle_type"
@@ -48,8 +48,8 @@ ActiveRecord::Schema.define(version: 2019_06_04_151648) do
   end
 
   create_table "trips", force: :cascade do |t|
-    t.datetime "start_date"
-    t.datetime "end_date"
+    t.date "start_date"
+    t.date "end_date"
     t.integer "rating"
     t.string "review"
     t.integer "bicycle_id"
