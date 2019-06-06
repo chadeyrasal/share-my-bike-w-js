@@ -4,3 +4,10 @@
 
 <p>Start date: <%= @trip.start_date.to_formatted_s(:long) %> </p>
 <p>End date: <%= @trip.end_date.to_formatted_s(:long) %></p>
+
+<% if @trip.rating %>
+  Rating: <%= @trip.rating %>
+  Review: <%= @trip.review %>
+<% else %>
+  <p><button type="button" name="review-button"><%= link_to "Add a review", edit_bicycle_trip_path(@trip.bicycle, @trip) %></button></p>
+<% end %>
