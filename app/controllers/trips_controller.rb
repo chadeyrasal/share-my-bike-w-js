@@ -12,7 +12,8 @@ class TripsController < ApplicationController
 
   def new
     @trip = Trip.new
-    @user = User.find(params[:user_id])
+    @bicycle = Bicycle.find(params[:bicycle_id])
+    @user = current_user
   end
 
   def create
