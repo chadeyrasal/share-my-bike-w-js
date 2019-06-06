@@ -2,7 +2,13 @@
 
 <h4>Your last trips</h4>
 
-<% if @user.trips.empty? %>
+<ul>
+  <% @user.reservations.each do |resa| %>
+    <li><%= link_to "Your #{resa.bicycle.city.name} trip of #{resa.start_date.to_formatted_s(:long)}", user_trip_path(@user, resa) %></li>
+  <% end %>
+</ul>
+
+<% if @user.reservations.empty? %>
   You haven't booked any trip yet...
 <% else %>
   <%= link_to "See all your trips...", user_trips_path(@user) %>
