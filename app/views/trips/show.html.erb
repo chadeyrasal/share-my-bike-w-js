@@ -1,1 +1,6 @@
-Your Trip show page
+<h2>Your <%= @trip.bicycle.city.name %> trip</h2>
+
+<p><%= link_to @trip.bicycle.title, bicycle_path(@trip.bicycle) %></p>
+
+<p>Start date: <%= @trip.start_date.to_formatted_s(:long) %> </p>
+<p>End date: <%= @trip.end_date.to_formatted_s(:long) %></p>
