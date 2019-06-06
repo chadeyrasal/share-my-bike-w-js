@@ -32,6 +32,9 @@ class TripsController < ApplicationController
   end
 
   def edit
+    @trip = Trip.find_by(id: params[:id])
+    @user = @trip.renter
+    @bicycle = @trip.bicycle
   end
 
   def update
