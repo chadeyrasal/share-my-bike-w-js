@@ -11,3 +11,5 @@
 <% else %>
   <p><button type="button" name="review-button"><%= link_to "Add a review", edit_user_trip_path(@trip.renter, @trip) %></button></p>
 <% end %>
+
+<p><%= link_to "Back to all your trips", user_trips_path(@user) %></p>
