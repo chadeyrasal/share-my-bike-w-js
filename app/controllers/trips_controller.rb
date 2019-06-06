@@ -35,7 +35,6 @@ class TripsController < ApplicationController
     @trip = Trip.find_by(id: params[:id])
     @user = @trip.renter
     @bicycle = @trip.bicycle
-    @rating_opt = Trip::RATING
   end
 
   def update
