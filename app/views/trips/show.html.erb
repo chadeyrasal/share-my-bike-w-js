@@ -6,8 +6,8 @@
 <p>End date: <%= @trip.end_date.to_formatted_s(:long) %></p>
 
 <% if @trip.rating %>
-  Rating: <%= @trip.rating %>
-  Review: <%= @trip.review %>
+  <p>Rating: <%= @trip.rating %></p>
+  <p>Review: <%= @trip.review %></p>
 <% else %>
   <p><button type="button" name="review-button"><%= link_to "Add a review", edit_user_trip_path(@trip.renter, @trip) %></button></p>
 <% end %>
