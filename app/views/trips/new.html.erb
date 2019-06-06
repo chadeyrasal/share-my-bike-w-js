@@ -1,13 +1,13 @@
 <h2>Rent this bicycle</h2>
 <%= link_to @bicycle.title, bicycle_path(@bicycle) %> at £<%= @bicycle.price %> per day
 
-<%= form_for [@user, @trip] do |f| %>
+<%= form_for [@bicycle, @trip], url: bicycle_trips_path(@bicycle) do |f| %>
 
-  <% if @bicycle.errors.any? %>
+  <% if @trip.errors.any? %>
     <div id="error_explanation">
       <h2>There were some errors:</h2>
       <ul>
-        <% @bicycle.errors.full_messages.each do |message| %>
+        <% @trip.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
