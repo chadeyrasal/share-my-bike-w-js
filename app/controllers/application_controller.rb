@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   helper_method :logged_in?
   helper_method :redirect_unless_logged_in
+  helper_method :redirect_if_logged_in
 
   def current_user
     @current_user ||= User.find_by(id: session[:user_id])
@@ -15,6 +16,10 @@ class ApplicationController < ActionController::Base
 
   def redirect_unless_logged_in
     redirect_to root_path unless logged_in?
+  end
+
+  def redirect_if_logged_in
+    redirect_to root_path if logged_in?
   end
 
 end

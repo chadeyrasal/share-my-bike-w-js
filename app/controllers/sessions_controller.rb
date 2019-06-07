@@ -1,7 +1,8 @@
 class SessionsController < ApplicationController
 
+    before_action :redirect_if_logged_in, only: [:new]
+
   def new
-    redirect_to root_path if logged_in?
   end
 
   def create
