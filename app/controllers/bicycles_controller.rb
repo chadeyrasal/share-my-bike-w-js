@@ -2,7 +2,7 @@ class BicyclesController < ApplicationController
 
   before_action :redirect_unless_logged_in, only: [:new, :edit]
   before_action :set_and_check_user, only: [:new, :create, :show, :edit]
-  before_action :set_bicycle, only: [:new, :show, :edit, :update]
+  before_action :set_bicycle, only: [:show, :edit, :update]
 
   def index
     if params[:city_id]
@@ -16,6 +16,7 @@ class BicyclesController < ApplicationController
   end
 
   def new
+    @bicycle = Bicycle.new
     @types = Bicycle::TYPE
     @sizes = Bicycle::SIZE
     @countries = Country.alphabetically
