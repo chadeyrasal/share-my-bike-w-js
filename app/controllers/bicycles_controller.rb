@@ -5,12 +5,14 @@ class BicyclesController < ApplicationController
       @city = City.find(params[:city_id])
       @bicycles = @city.bicycles
     elsif params[:user_id]
+      redirect_unless_logged_in
       @user = User.find(params[:user_id])
       @bicycles = @user.bicycles
     end
   end
 
   def new
+    redirect_unless_logged_in
     @user = current_user
     @bicycle = @user.bicycles.new
     @types = Bicycle::TYPE
@@ -37,6 +39,7 @@ class BicyclesController < ApplicationController
   end
 
   def edit
+    redirect_unless_logged_in
     @bicycle = Bicycle.find_by(id: params[:id])
     @user = User.find(params[:user_id]) if params[:user_id]
     @types = Bicycle::TYPE
