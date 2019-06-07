@@ -1,6 +1,8 @@
 class BicyclesController < ApplicationController
 
   before_action :redirect_unless_logged_in, only: [:new, :edit]
+  before_action :set_and_check_user, only: [:new, :create, :show, :edit]
+  before_action :set_bicycle, only: [:new, :show, :edit, :update]
 
   def index
     if params[:city_id]
@@ -8,24 +10,18 @@ class BicyclesController < ApplicationController
       @bicycles = @city.bicycles
     elsif params[:user_id]
       redirect_unless_logged_in
-      @user = User.find(params[:user_id])
-      redirect_to root_path if @user != current_user
+      set_and_check_user
       @bicycles = @user.bicycles
     end
   end
 
   def new
-    @user = User.find(params[:user_id])
-    redirect_to root_path if @user != current_user
-    @bicycle = @user.bicycles.new
     @types = Bicycle::TYPE
     @sizes = Bicycle::SIZE
     @countries = Country.alphabetically
   end
 
   def create
-    @user = User.find(params[:user_id])
-    redirect_to root_path if @user != current_user
     @bicycle = @user.bicycles.new(bicycle_params)
     @country = Country.find(params[:bicycle][:country_id])
     @bicycle.city = @country.cities.find_or_create_by(name: params[:bicycle][:city])
@@ -38,15 +34,9 @@ class BicyclesController < ApplicationController
   end
 
   def show
-    @bicycle = Bicycle.find_by(id: params[:id])
-    @user = User.find(params[:user_id]) if params[:user_id]
-    redirect_to root_path if @user != current_user
   end
 
   def edit
-    @bicycle = Bicycle.find_by(id: params[:id])
-    @user = User.find(params[:user_id]) if params[:user_id]
-    redirect_to root_path if @user != current_user
     @types = Bicycle::TYPE
     @sizes = Bicycle::SIZE
     @countries = Country.alphabetically
@@ -54,7 +44,6 @@ class BicyclesController < ApplicationController
   end
 
   def update
-    @bicycle = Bicycle.find(params[:id])
     @bicycle.update(bicycle_params)
     @country = Country.find(params[:bicycle][:country_id])
     @bicycle.city = @country.cities.find_or_create_by(name: params[:bicycle][:city])
@@ -74,6 +63,10 @@ class BicyclesController < ApplicationController
 
   def bicycle_params
     params.require(:bicycle).permit(:title, :description, :bicycle_type, :size, :colour, :price, :country_id)
+  end
+
+  def set_bicycle
+    @bicycle = Bicycle.find(params[:id])
   end
 
 end

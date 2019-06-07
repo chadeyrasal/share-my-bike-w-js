@@ -1,13 +1,11 @@
 class TripsController < ApplicationController
 
-  before_action :redirect_unless_logged_in, only: [:index, :new, :show, :edit]
+  before_action :redirect_unless_logged_in, only: [:index, :new, :crete, :show, :edit]
+  before_action :set_and_check_user, only: [:index, :show]
+  before_action :set_trip, only: [:show, :edit, :update]
 
   def index
-    if params[:user_id]
-      @user = User.find(params[:user_id])
-      redirect_to root_path if @user != current_user
-      @trips = @user.reservations
-    end
+    @trips = @user.reservations
   end
 
   def new
@@ -27,20 +25,15 @@ class TripsController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:user_id])
-    redirect_to root_path if @user != current_user
-    @trip = Trip.find(params[:id])
   end
 
   def edit
-    @trip = Trip.find(params[:id])
     @user = @trip.renter
     redirect_to root_path if @user != current_user
     @bicycle = @trip.bicycle
   end
 
   def update
-    @trip = Trip.find(params[:id])
     @trip.rating = params[:trip][:rating]
     @trip.review = params[:trip][:review]
     if @trip.save
@@ -55,6 +48,10 @@ class TripsController < ApplicationController
 
   def trip_params
     params.require(:trip).permit(:start_date, :end_date, :bicycle_id)
+  end
+
+  def set_trip
+    @trip = Trip.find(params[:id])
   end
 
 end
