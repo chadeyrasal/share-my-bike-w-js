@@ -18,6 +18,7 @@ class UsersController < ApplicationController
   def show
     redirect_unless_logged_in
     @user = User.find_by(id: params[:id])
+    redirect_to root_path if @user != current_user
   end
 
 

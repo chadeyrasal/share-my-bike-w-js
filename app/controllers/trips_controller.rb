@@ -4,9 +4,7 @@ class TripsController < ApplicationController
     redirect_unless_logged_in
     if params[:user_id]
       @user = User.find(params[:user_id])
-      if @user != current_user
-        redirect_to root_path
-      end
+      redirect_to root_path if @user != current_user
       @trips = @user.reservations
     end
   end
@@ -31,6 +29,7 @@ class TripsController < ApplicationController
   def show
     redirect_unless_logged_in
     @user = User.find(params[:user_id])
+    redirect_to root_path if @user != current_user
     @trip = Trip.find(params[:id])
   end
 
@@ -38,6 +37,7 @@ class TripsController < ApplicationController
     redirect_unless_logged_in
     @trip = Trip.find(params[:id])
     @user = @trip.renter
+    redirect_to root_path if @user != current_user
     @bicycle = @trip.bicycle
   end
 
