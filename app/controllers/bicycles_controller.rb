@@ -1,5 +1,7 @@
 class BicyclesController < ApplicationController
 
+  before_action :redirect_unless_logged_in, only: [:new, :edit]
+
   def index
     if params[:city_id]
       @city = City.find(params[:city_id])
@@ -13,7 +15,6 @@ class BicyclesController < ApplicationController
   end
 
   def new
-    redirect_unless_logged_in
     @user = User.find(params[:user_id])
     redirect_to root_path if @user != current_user
     @bicycle = @user.bicycles.new
@@ -43,7 +44,6 @@ class BicyclesController < ApplicationController
   end
 
   def edit
-    redirect_unless_logged_in
     @bicycle = Bicycle.find_by(id: params[:id])
     @user = User.find(params[:user_id]) if params[:user_id]
     redirect_to root_path if @user != current_user

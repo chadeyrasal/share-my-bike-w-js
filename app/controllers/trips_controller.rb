@@ -1,7 +1,8 @@
 class TripsController < ApplicationController
 
+  before_action :redirect_unless_logged_in, only: [:index, :new, :show, :edit]
+
   def index
-    redirect_unless_logged_in
     if params[:user_id]
       @user = User.find(params[:user_id])
       redirect_to root_path if @user != current_user
@@ -10,7 +11,6 @@ class TripsController < ApplicationController
   end
 
   def new
-    redirect_unless_logged_in
     @bicycle = Bicycle.find(params[:bicycle_id])
     @trip = @bicycle.trips.new
   end
@@ -27,14 +27,12 @@ class TripsController < ApplicationController
   end
 
   def show
-    redirect_unless_logged_in
     @user = User.find(params[:user_id])
     redirect_to root_path if @user != current_user
     @trip = Trip.find(params[:id])
   end
 
   def edit
-    redirect_unless_logged_in
     @trip = Trip.find(params[:id])
     @user = @trip.renter
     redirect_to root_path if @user != current_user
