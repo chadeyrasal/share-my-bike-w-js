@@ -1,7 +1,7 @@
 class TripsController < ApplicationController
 
   before_action :redirect_unless_logged_in, only: [:index, :new, :crete, :show, :edit]
-  before_action :set_and_check_user, only: [:index, :show]
+  before_action :set_and_check_user, only: [:index, :show, :edit]
   before_action :set_trip, only: [:show, :edit, :update]
 
   def index
@@ -28,8 +28,7 @@ class TripsController < ApplicationController
   end
 
   def edit
-    @user = @trip.renter
-    redirect_to root_path if @user != current_user
+    redirect_to root_path if @trip.renter != @user
     @bicycle = @trip.bicycle
   end
 
