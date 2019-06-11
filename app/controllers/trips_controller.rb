@@ -1,7 +1,7 @@
 class TripsController < ApplicationController
 
   before_action :redirect_unless_logged_in, only: [:index, :new, :crete, :show, :edit]
-  before_action :set_and_check_user, only: [:index, :show, :edit]
+  before_action :set_and_check_user, only: [:index, :show, :edit, :update]
   before_action :set_trip, only: [:show, :edit, :update]
 
   def index
@@ -36,7 +36,7 @@ class TripsController < ApplicationController
     @trip.rating = params[:trip][:rating]
     @trip.review = params[:trip][:review]
     if @trip.save
-      redirect_to user_trip_path(@trip.renter, @trip)
+      redirect_to user_trip_path(@user, @trip)
     else
       render :edit
     end
