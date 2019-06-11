@@ -39,5 +39,7 @@ Reviews:
 <% if !logged_in? %>
   Please <%= link_to "login", login_path %> to rent this bicycle
 <% else %>
-  <p><button type="button" name="book-button"><%= link_to "Rent this bicycle", new_bicycle_trip_path(@bicycle) %></button></p>
+  <% if current_user != @bicycle.owner %>
+    <p><button type="button" name="book-button"><%= link_to "Rent this bicycle", new_bicycle_trip_path(@bicycle) %></button></p>
+  <% end %>
 <% end %>
