@@ -13,4 +13,8 @@
   <% end %>
 </ul>
 
+<% if @trips.empty? %>
+  <p>You haven't booked any trip yet...</p>
+<% end %>
+
 <p><%= link_to "Back to your account page", user_path(@user) %></p>
