@@ -11,3 +11,12 @@
   <h4>Most popular bicycles</h4>
   scope method 2
 </div>
+
+<div>
+  <h4>Latest bicycles</h4>
+  <ul>
+    <% @latest.each do |bicycle| %>
+      <li><%= link_to bicycle.title, bicycle_path(bicycle) %></li>
+    <% end %>
+  </ul>
+</div>

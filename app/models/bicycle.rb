@@ -15,4 +15,9 @@ class Bicycle < ApplicationRecord
     array = self.trips.collect{|trip| total += trip.rating}
     total.to_f / array.size
   end
+
+  def self.latest
+    order(created_at: :desc).limit(5)
+  end
+
 end
