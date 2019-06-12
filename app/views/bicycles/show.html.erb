@@ -31,7 +31,7 @@
 Reviews:
 
 <ul>
-  <% @bicycle.trips.each do |trip| %>
+  <% @bicycle.trips.reverse.each do |trip| %>
     <li><%= trip.review %></li>
   <% end %>
 </ul>
