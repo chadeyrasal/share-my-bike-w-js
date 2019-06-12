@@ -21,12 +21,12 @@
 
 <div class="field">
   <%= f.label :bicycle_type, "Type" %><br>
-  <%= f.select(:bicycle_type, @types) %>
+  <%= f.select :bicycle_type, options_for_select([["Please select", ""], "City", "Dutch", "Folding", "Hybrid / Trekking", "Mountain", "Road", "Triathlon", "E-City", "E-Hybrid / E-Touring", "E-Mountain", "E-Road"]) %>
 </div>
 
 <div class="field">
   <%= f.label :size %><br>
-  <%= f.select(:size, @sizes) %>
+  <%= f.select :size, options_for_select([["Please select", ""], "Small", "Medium", "Large"]) %>
 </div>
 
 <%= render partial: "bicycles/size_chart" %>
@@ -39,9 +39,4 @@
 <div class="field">
   <%= f.label :price, "Price in Sterling Pounds" %><br>
   <%= f.text_field :price %>
-</div>
-
-<div class="field">
-  <%= f.label :country %><br>
-  <%= f.collection_select(:country_id, @countries, :id, :name) %>
 </div>

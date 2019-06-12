@@ -7,11 +7,8 @@ class Bicycle < ApplicationRecord
   has_many :trips
   has_many :renters, class_name: "User", through: :trips
 
-  validates :title, :description, presence: true
+  validates :title, :description, :bicycle_type, :size, :colour, :price, presence: true
 
-  SIZE = ["Small", "Medium", "Large"]
-
-  TYPE = ["City", "Dutch", "Folding", "Hybrid / Trekking", "Mountain", "Road", "Triathlon", "E-City", "E-Hybrid / E-Touring", "E-Mountain", "E-Road"]
 
   def average
     total = 0

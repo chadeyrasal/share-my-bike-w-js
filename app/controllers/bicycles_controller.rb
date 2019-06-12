@@ -17,16 +17,16 @@ class BicyclesController < ApplicationController
 
   def new
     @bicycle = Bicycle.new
-    @types = Bicycle::TYPE
-    @sizes = Bicycle::SIZE
+  #  @types = Bicycle::TYPE
+  #  @sizes = Bicycle::SIZE
     @countries = Country.alphabetically
   end
 
   def create
     @bicycle = @user.bicycles.new(bicycle_params)
-    @country = Country.find(params[:bicycle][:country_id])
-    @bicycle.city = @country.cities.find_or_create_by(name: params[:bicycle][:city])
-    @bicycle.neighborhood = @bicycle.city.neighborhoods.find_or_create_by(name: params[:bicycle][:neighborhood])
+    @bicycle.country = Country.find_or_create_by(name: params[:bicycle][:country]) unless params[:bicycle][:country] == ""
+    @bicycle.city = @bicycle.country.cities.find_or_create_by(name: params[:bicycle][:city]) unless params[:bicycle][:city] == ""
+    @bicycle.neighborhood = @bicycle.city.neighborhoods.find_or_create_by(name: params[:bicycle][:neighborhood]) unless params[:bicycle][:neighborhood] == ""
     if @bicycle.save
       redirect_to bicycle_path(@bicycle)
     else
