@@ -2,7 +2,7 @@
 
 <%= form_for [@user, @bicycle] do |f| %>
 
-  <%= render partial: "bicycles/bicycle_form", locals: {f: f} %>
+  <%= render "bicycles/bicycle_form", f: f %>
 
   <div class="field">
     <%= f.label :country %><br>
