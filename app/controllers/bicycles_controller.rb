@@ -17,8 +17,6 @@ class BicyclesController < ApplicationController
 
   def new
     @bicycle = Bicycle.new
-  #  @types = Bicycle::TYPE
-  #  @sizes = Bicycle::SIZE
     @countries = Country.alphabetically
   end
 
@@ -38,8 +36,6 @@ class BicyclesController < ApplicationController
   end
 
   def edit
-    @types = Bicycle::TYPE
-    @sizes = Bicycle::SIZE
     @countries = Country.alphabetically
     redirect_to root_path if @user != current_user
   end
