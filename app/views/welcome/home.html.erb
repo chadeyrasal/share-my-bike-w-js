@@ -2,7 +2,11 @@
 
 <div>
   <h4>Most popular bicycles</h4>
-  scope method 2
+  <ul>
+    <% Bicycle.all.each do |bicycle| %>
+      <li><%= link_to bicycle.title, bicycle_path(bicycle) %>, <%= bicycle.trips.count %></li>
+    <% end %>
+  </ul>
 </div>
 
 <div>
