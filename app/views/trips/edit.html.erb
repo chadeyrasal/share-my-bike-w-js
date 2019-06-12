@@ -6,6 +6,8 @@
 
 <%= form_for [@user, @trip] do |f| %>
 
+  <%= render partial: "trips/trip_errors" %>
+
   <div class="field">
     <%= f.label :rating %><br>
     <%= f.radio_button :rating, '1' %>1
