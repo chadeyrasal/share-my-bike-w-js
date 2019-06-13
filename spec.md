@@ -1,6 +1,6 @@
 Requirements
 
-[ ] Use the Ruby on Rails framework.
+[X] Use the Ruby on Rails framework.
 
 [ ] Your models must:
 
