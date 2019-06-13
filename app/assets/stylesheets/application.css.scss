@@ -14,9 +14,8 @@
  *= require_self
  */
 
- .field {
-
- }
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
 
  .field_with_errors {
   border: 2px solid red;
