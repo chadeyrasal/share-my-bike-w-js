@@ -11,9 +11,10 @@ class Bicycle < ApplicationRecord
 
 
   def average
-    total = 0
-    array = self.trips.collect{|trip| total += trip.rating}
-    total.to_f / array.size
+    sum = 0
+    array = self.trips.collect{|trip| sum += trip.rating}
+    total = sum.to_f / array.size
+    total.round(2)
   end
 
   def self.latest

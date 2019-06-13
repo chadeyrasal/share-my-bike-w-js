@@ -9,7 +9,7 @@
   <%= link_to @bicycle.city.name, city_path(@bicycle.city)%>
 </h4>
 
-<p>Rating: <%= @bicycle.average.round(2) %></p>
+<p>Rating: <%= @bicycle.average %></p>
 <p>Price: £<%= @bicycle.price %> / day</p>
 <p>Type: <%= @bicycle.bicycle_type %></p>
 <p>Colour: <%= @bicycle.colour %></p>

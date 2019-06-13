@@ -22,7 +22,7 @@
         <li>
           <%= link_to bicycle.title, user_bicycle_path(@user, bicycle) %> <br>
           Number of trips: <%= bicycle.trips.count %> <br>
-          Average rating: <%= bicycle.average.round(2) %>
+          Average rating: <%= bicycle.average %>
         </li>
       <% end %>
     </ul>
