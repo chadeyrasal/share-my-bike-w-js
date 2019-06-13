@@ -12,22 +12,25 @@
   </head>
 
   <body>
-    <%= link_to "Home", root_path %>
-    <%= link_to "Cities", cities_path %>
-    <% if logged_in? %>
-      <%= link_to "Add a bicycle", new_user_bicycle_path(current_user) %>
-      <%= link_to "My account", user_path(current_user) %>
-      <%= link_to "Logout", logout_path %>
-    <% else %>
-      <%= link_to "Signup", signup_path %>
-      <%= link_to "Login", login_path %>
-    <% end %>
+    <header>
+      <%= link_to "Home", root_path %>
+      <%= link_to "Cities", cities_path %>
+      <% if logged_in? %>
+        <%= link_to "Add a bicycle", new_user_bicycle_path(current_user) %>
+        <%= link_to "My account", user_path(current_user) %>
+        <%= link_to "Logout", logout_path %>
+      <% else %>
+        <%= link_to "Signup", signup_path %>
+        <%= link_to "Login", login_path %>
+      <% end %>
+    </header>
+
     <%= yield %>
 
-    <div>
+    <footer>
       <% if !!current_user %>
         You are logged in as: <%= current_user.full_name %>
       <% end %>
-    </div>
+    </footer>
   </body>
 </html>
