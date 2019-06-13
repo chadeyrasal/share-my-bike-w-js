@@ -13,6 +13,7 @@
 
   <body>
     <header>
+      <div class="navbar">
       <%= link_to "Home", root_path %>
       <%= link_to "Cities", cities_path %>
       <% if logged_in? %>
@@ -23,6 +24,7 @@
         <%= link_to "Signup", signup_path %>
         <%= link_to "Login", login_path %>
       <% end %>
+      </div>
     </header>
 
     <%= yield %>
