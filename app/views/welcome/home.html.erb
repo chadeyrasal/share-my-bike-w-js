@@ -3,8 +3,8 @@
 <div>
   <h4>Most popular bicycles</h4>
   <ul>
-    <% Bicycle.all.each do |bicycle| %>
-      <li><%= link_to bicycle.title, bicycle_path(bicycle) %>, <%= bicycle.trips.count %></li>
+    <% @most_popu.each do |bicycle| %>
+      <li><%= link_to Bicycle.find(bicycle[0]).title, bicycle_path(bicycle[0]) %></li>
     <% end %>
   </ul>
 </div>
