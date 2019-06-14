@@ -43,8 +43,8 @@ class BicyclesController < ApplicationController
 
   def update
     @bicycle.update(bicycle_params)
-    @country = Country.find(params[:bicycle][:country_id])
-    @bicycle.city = @country.cities.find_or_create_by(name: params[:bicycle][:city])
+    @bicycle.country = Country.find_or_create_by(name: params[:bicycle][:country])
+    @bicycle.city = @bicycle.country.cities.find_or_create_by(name: params[:bicycle][:city])
     @bicycle.neighborhood = @bicycle.city.neighborhoods.find_or_create_by(name: params[:bicycle][:neighborhood])
     if @bicycle.save
       flash[:success] = "Your bicycle has been updated successfully"
@@ -58,7 +58,7 @@ class BicyclesController < ApplicationController
   private
 
   def bicycle_params
-    params.require(:bicycle).permit(:title, :description, :bicycle_type, :size, :colour, :price, :country_id)
+    params.require(:bicycle).permit(:title, :description, :bicycle_type, :size, :colour, :price)
   end
 
   def set_bicycle
