@@ -18,6 +18,7 @@ class TripsController < ApplicationController
     @trip = @bicycle.trips.new(trip_params)
     @trip.renter_id = current_user.id
     if @trip.save
+      flash[:success] = "You're all booked!"
       redirect_to user_trip_path(@trip.renter, @trip)
     else
       render :new
@@ -36,6 +37,7 @@ class TripsController < ApplicationController
     @trip.rating = params[:trip][:rating]
     @trip.review = params[:trip][:review]
     if @trip.save
+      flash[:success] = "Thank you for the review!"
       redirect_to user_trip_path(@user, @trip)
     else
       render :edit

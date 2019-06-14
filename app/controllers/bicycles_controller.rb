@@ -26,6 +26,7 @@ class BicyclesController < ApplicationController
     @bicycle.city = @bicycle.country.cities.find_or_create_by(name: params[:bicycle][:city]) unless params[:bicycle][:city] == ""
     @bicycle.neighborhood = @bicycle.city.neighborhoods.find_or_create_by(name: params[:bicycle][:neighborhood]) unless params[:bicycle][:neighborhood] == ""
     if @bicycle.save
+      flash[:success] = "Your new bicycle was successfully created"
       redirect_to bicycle_path(@bicycle)
     else
       render :new
@@ -46,6 +47,7 @@ class BicyclesController < ApplicationController
     @bicycle.city = @country.cities.find_or_create_by(name: params[:bicycle][:city])
     @bicycle.neighborhood = @bicycle.city.neighborhoods.find_or_create_by(name: params[:bicycle][:neighborhood])
     if @bicycle.save
+      flash[:success] = "Your bicycle has been updated successfully"
       redirect_to user_bicycle_path(@bicycle.owner, @bicycle)
     else
       render :edit
