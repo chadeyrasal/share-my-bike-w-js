@@ -1,5 +1,5 @@
-<% if @user && @user == current_user %>
-  <p><button type="button" name="edit-button"><%= link_to "Edit this bicycle", edit_user_bicycle_path(@user, @bicycle) %></button></p>
+<% if @bicycle.owner == current_user %>
+  <p><button type="button" name="edit-button"><%= link_to "Edit this bicycle", edit_user_bicycle_path(@bicycle.owner, @bicycle) %></button></p>
 <% end %>
 
 <h2><%= @bicycle.title %></h2>
