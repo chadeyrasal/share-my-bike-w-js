@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   get "/auth/facebook/callback", to: "sessions#create"
 
+  get "/luxurious", to: "bicycles#luxurious"
+
   resources :users, only: [:create, :show] do
     resources :trips, only: [:index, :show, :edit, :update]
     resources :bicycles, only: [:index, :show, :new, :create, :edit, :update]

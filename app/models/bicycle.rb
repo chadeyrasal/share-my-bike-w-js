@@ -25,4 +25,8 @@ class Bicycle < ApplicationRecord
     joins(:trips).group(:bicycle_id).count.sort_by{|_key, value| value}.reverse.first(5)
   end
 
+  def self.luxurious
+    order('CAST(price AS INTEGER) DESC').limit(5)
+  end
+
 end
