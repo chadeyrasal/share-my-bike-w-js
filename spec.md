@@ -1,42 +1,45 @@
-Requirements
+# Rails App with JavaScript Frontend Spec
 
-[X] Use the Ruby on Rails framework.
+## Project Specs:
 
-[X] Your models must:
+[ ] Must have a Rails Backend and new requirements implemented through JavaScript.
 
-    [X] Include at least one has_many, at least one belongs_to, and at least two has_many :through
-        relationships
+[ ] Makes use of ES6 features as much as possible(e.g Arrow functions, Let & Const, Constructor Functions)
 
-    [X] Include a many-to-many relationship implemented with has_many :through associations. The join table
-        must include a user-submittable attribute — that is to say, some attribute other than its foreign keys that can be submitted by the app's user
+[ ] Must translate the JSON responses into Javascript Model Objects using either ES6 class or constructor syntax.
 
-[X] Your models must include reasonable validations for the simple attributes. You don't need to add every possible
-    validation or duplicates, such as presence and a minimum length, but the models should defend against invalid data.
+[ ] Must render at least one index page (index resource - 'list of things') via JavaScript and an Active Model Serialization
+    JSON Backend.
 
-[X] You must include at least one class level ActiveRecord scope method. a. Your scope method must be chainable,
-    meaning that you must use ActiveRecord Query methods within it (such as .where and .order) rather than native ruby methods (such as #find_all or #sort).
+[ ] Must render at least one show page (show resource - 'one specific thing') via JavaScript and an Active Model
+    Serialization JSON Backend.
 
-[X] Your application must provide standard user authentication, including signup, login, logout, and passwords.
+[ ] Your Rails application must reveal at least one `has-many` relationship through JSON that is then rendered to the page.
 
-[X] Your authentication system must also allow login from some other service. Facebook, Twitter, Foursquare, Github,
-    etc...
+[ ] Must use your Rails application to render a form for creating a resource that is submitted dynamically through JavaScript.
 
-[X] You must include and make use of a nested resource with the appropriate RESTful URLs.
+[ ] At least one of the JS Model Objects must have a method on the prototype.
 
-    [X] You must include a nested new route with form that relates to the parent resource
 
-    [X] You must include a nested index or show route
+## Project Repo Specs:
 
-[X] Your forms should correctly display validation errors. a. Your fields should be enclosed within a
-    fields_with_errors class b. Error messages describing the validation failures must be present within the view.
+### Read Me file contains:
 
-[X] Your application must be, within reason, a DRY (Do-Not-Repeat-Yourself) rails app.
+[ ] Application Description
 
-    [X] Logic present in your controllers should be encapsulated as methods in your models.
+[ ] Installation guide (e.g. fork and clone repo, migrate db, bundle install, etc)
 
-    [X] Your views should use helper methods and partials when appropriate.
+[ ] Contributors guide (e.g. file an issue, file an issue with a pull request, etc)
 
-    [X] Follow patterns in the Rails Style Guide and the Ruby Style Guide.
+[ ] Licensing statement at the bottom (e.g. This project has been licensed under the MIT open source license.)
 
-[X] Do not use scaffolding to build your project. Your goal here is to learn. Scaffold is a way to get up and
-    running quickly, but learning a lot is not one of the benefits of scaffolding.
+
+### Repo General:
+
+[ ] You have a large number of small Git commits
+
+[ ] Your commit messages are meaningful
+
+[ ] You made the changes in a commit that relate to the commit message
+
+[ ] You don't include changes in a commit that aren't related to the commit message
