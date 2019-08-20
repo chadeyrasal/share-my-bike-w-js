@@ -8,6 +8,10 @@ class BicyclesController < ApplicationController
     if params[:city_id]
       @city = City.find(params[:city_id])
       @bicycles = @city.bicycles
+      respond_to do |f|
+        f.html
+        f.json { render json: @bicycles }
+      end
     elsif params[:user_id]
       redirect_unless_logged_in
       set_and_check_user
