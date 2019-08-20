@@ -31,7 +31,9 @@
       <div class="alert alert-<%= key %>"><%= value %></div>
     <% end %>
 
-    <%= yield %>
+    <div id="app-container">
+      <%= yield %>
+    </div>
 
     <footer>
       <% if !!current_user %>
