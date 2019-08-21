@@ -28,4 +28,6 @@ Rails.application.routes.draw do
     resources :bicycles, only: [:index]
   end
 
+  get "/cities/:id/next", to: "cities#next"
+
 end
