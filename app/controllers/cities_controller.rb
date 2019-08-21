@@ -17,4 +17,7 @@ class CitiesController < ApplicationController
     end
   end
 
+  def next
+  end
+
 end
