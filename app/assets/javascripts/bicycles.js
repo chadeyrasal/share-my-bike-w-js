@@ -5,6 +5,7 @@ $(() => {
 const bindClickHandlers = () => {
   $('.city_bicycles').on('click', (event) => {
     event.preventDefault();
+    history.pushState(null, null, 'bicycles');
     alert('hello there')
 //    fetch(`/bicycles.json`)
 //      .then(response => response.json())
@@ -35,7 +36,7 @@ function Bicycle(id, bicycle_type, size, colour, title, desription, price, neigh
 
 Bicycle.prototype.formatIndex = function() {
   let bicycleHtml = `
-    <h1>${this.title}</h1>
+    <a href="/bicycles/${this.id}"><h1>${this.title}</h1></a>
   `;
   return bicycleHtml;
 }
