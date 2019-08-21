@@ -58,10 +58,6 @@ City.prototype.formatShow = function() {
     <button class="js-previous-city">Previous City</button>
     <br>
     <h2>${this.name}</h2>
-    <h3>A selection of neighborhoods for your trips</h3>
-    <ul>
-
-    </ul>
     <button class="js-next-city">Next City</button>
     <br><br>
   `;
