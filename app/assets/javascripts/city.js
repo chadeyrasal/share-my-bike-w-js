@@ -1,8 +1,8 @@
 $(() => {
-  bindClickHandlers();
+  cityClickHandlers();
 })
 
-const bindClickHandlers = () => {
+const cityClickHandlers = () => {
   $('.all_cities').on('click', (event) => {
     event.preventDefault();
     history.pushState(null, null, 'cities');
@@ -18,7 +18,7 @@ const bindClickHandlers = () => {
       })
   })
 
-  $(document).on('click', '.show-link', function(event) {
+  $(document).on('click', '.show-city-link', function(event) {
     event.preventDefault();
     let id = $(this).attr('data-id')
     history.pushState(null, null, `cities/${id}`);
@@ -32,7 +32,7 @@ const bindClickHandlers = () => {
       })
   })
 
-  $(document).on('click', '.js-next', (event) => {
+  $(document).on('click', '.js-next-city', (event) => {
     let id = $(this).attr('data-id')
     fetch(`cities/${id}/next`)
   })
@@ -46,7 +46,7 @@ function City(object) {
 
 City.prototype.formatIndex = function() {
   let cityHtml = `<li>
-    <a href="/cities/${this.id}" data-id="${this.id}" class="show-link"><strong>${this.name}</strong></a>,
+    <a href="/cities/${this.id}" data-id="${this.id}" class="show-city-link"><strong>${this.name}</strong></a>,
     ${this.country.name}
     </li>
   `;
@@ -55,8 +55,15 @@ City.prototype.formatIndex = function() {
 
 City.prototype.formatShow = function() {
   let cityHtml = `
-    <h4>${this.name}</h4>
-    <button class="js-next">Next City</button>
+    <button class="js-previous-city">Previous City</button>
+    <br>
+    <h2>${this.name}</h2>
+    <h3>A selection of neighborhoods for your trips</h3>
+    <ul>
+
+    </ul>
+    <button class="js-next-city">Next City</button>
+    <br><br>
   `;
   return cityHtml;
 }

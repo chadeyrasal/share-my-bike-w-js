@@ -1,42 +1,45 @@
 $(() => {
-  bindClickHandlers();
+  bicycleClickHandlers();
 })
 
-const bindClickHandlers = () => {
-  $('.city_bicycles').on('click', (event) => {
+const bicycleClickHandlers = () => {
+  $('.city_bicycles').on('click', function(event) {
     event.preventDefault();
-    history.pushState(null, null, 'bicycles');
-    alert('hello there')
-//    fetch(`/bicycles.json`)
-//      .then(response => response.json())
-//      .then(bicycles => {
-//        $('#app-container').html('');
-//        bicycles.forEach((bicycle) => {
-//          let newBicycle = new Bicycle(bicyle);
-//          let bicycleHtml = newBicycle.formatIndex();
-//          $('#app-container').append(bicycleHtml);
-//        })
-//      })
+    let id = $(this).attr('data-id')
+    history.pushState(null, null, `${id}/bicycles`);
+    fetch(`bicycles.json`)
+      .then(response => response.json())
+      .then(bicycles => {
+        $('#app-container').html('');
+        bicycles.forEach((bicycle) => {
+          let newBicycle = new Bicycle(bicycle);
+          let bicycleHtml = newBicycle.formatIndex();
+          $('#app-container').append(bicycleHtml);
+        })
+      })
   })
 }
 
-function Bicycle(id, bicycle_type, size, colour, title, desription, price, neighborhood, owner, country, city) {
-  this.id = id;
-  this.bicycle_type = bicycle_type;
-  this.size = size;
-  this.colour = colour;
-  this.title = title;
-  this.description = description;
-  this.price = price;
-  this.neighborhood = neighborhood;
-  this.owner = owner;
-  this.country = country;
-  this.city = city;
+function Bicycle(object) {
+  this.id = object.id;
+  this.bicycle_type = object.bicycle_type;
+  this.size = object.size;
+  this.colour = object.colour;
+  this.title = object.title;
+  this.description = object.description;
+  this.price = object.price;
+  this.neighborhood = object.neighborhood;
+  this.owner = object.owner;
+  this.country = object.country;
+  this.city = object.city;
 }
 
 Bicycle.prototype.formatIndex = function() {
-  let bicycleHtml = `
-    <a href="/bicycles/${this.id}"><h1>${this.title}</h1></a>
+  let bicycleHtml = `<li>
+    <a href="/bicycles/${this.id}"><strong>${this.title}</strong></a>, ${this.price}
+    <button>More Info</button>
+    </li>
+    <br>
   `;
   return bicycleHtml;
 }
