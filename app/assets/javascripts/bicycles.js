@@ -1,35 +1,14 @@
-const rootUrl = 'http://localhost:3000/';
-
 $(() => {
-  clickAllBicycles();
+//  clickAllBicycles();
   newBicycleSubmission();
 })
-
-const clickAllBicycles = () => {
-  $('.city_bicycles').on('click', function(event) {
-    event.preventDefault();
-    let cityId = $(this).attr('data-id');
-    let url = rootUrl + 'cities/' + cityId + '/bicycles';
-    history.pushState(null, null, url);
-    fetch(`bicycles.json`)
-      .then(response => response.json())
-      .then(bicycles => {
-        clearDom();
-        bicycles.forEach((bicycle) => {
-          let newBicycle = new Bicycle(bicycle);
-          let bicycleHtml = newBicycle.formatIndex();
-          $('#app-container').append(bicycleHtml);
-        });
-      });
-  });
-};
 
 const newBicycleSubmission = () => {
   $('.new_bicycle').on('submit', function(event) {
     event.preventDefault();
     const values = $(this).serialize();
     let userId = $('.bicycle-user-id').data('bicycle-user-id')
-    let postUrl = rootUrl + 'users/' + userId + '/bicycles'
+    let postUrl = baseUrl + 'users/' + userId + '/bicycles'
     $.post(postUrl, values).done(function(data) {
       clearDom();
       const newBicycle = new Bicycle(data);
@@ -55,8 +34,12 @@ function Bicycle(object) {
 
 Bicycle.prototype.formatIndex = function() {
   let bicycleHtml = `<li>
-    <a href="/bicycles/${this.id}"><strong>${this.title}</strong></a>, ${this.price}
-    <button>More Info</button>
+    <a href="/bicycles/${this.id}"><strong>${this.title}</strong></a><br>
+    Type: ${this.bicycle_type}<br>
+    Size: ${this.size}<br>
+    Colour: ${this.colour}<br>
+    Price: ${this.price}<br>
+    Location: ${this.neighborhood.name} (${this.city.name}, ${this.country.name})
     </li>
     <br>
   `;

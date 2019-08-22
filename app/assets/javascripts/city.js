@@ -41,10 +41,24 @@ const cityClick = () => {
     fetch(`/cities/${id}.json`)
       .then(response => response.json())
       .then(city => {
-        let newCity = new City(city);
-        let cityHtml = newCity.formatShow();
-        $('#app-container').append(cityHtml);
+        getCity(city);
+        getCityBicycles(city);
       });
+  });
+};
+
+const getCity = (city) => {
+  let newCity = new City(city);
+  let cityHtml = newCity.formatShow();
+  $('#app-container').append(cityHtml);
+}
+
+const getCityBicycles = (city) => {
+  let cityBicycles = city.bicycles;
+  cityBicycles.forEach(bicycle => {
+    let newBicycle = new Bicycle(bicycle);
+    let bicycleHtml = newBicycle.formatIndex();
+    $('#app-container').append(bicycleHtml);
   });
 };
 
@@ -65,11 +79,8 @@ City.prototype.formatIndex = function() {
 
 City.prototype.formatShow = function() {
   let cityHtml = `
-    <button class="js-previous-city">Previous City</button>
-    <br>
     <h2>${this.name}</h2>
-    <button class="js-next-city" data-id="${this.id}>Next City</button>
-    <br><br>
+    <h4>A selection of bicycles in the city: </h4>
   `;
   return cityHtml;
 };
