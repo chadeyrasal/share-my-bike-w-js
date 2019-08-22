@@ -30,7 +30,7 @@ const newBicycleSubmission = () => {
     const values = $(this).serialize();
     $.post('/bicycles', values)
       .done(function(data) {
-
+        console.log(data);
       });
   });
 };
