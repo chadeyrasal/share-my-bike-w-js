@@ -1,14 +1,3 @@
-const baseUrl = 'http://localhost:3000/';
-
-$(() => {
-  allCitiesClick();
-  cityClick();
-});
-
-const clearDom = () => {
-  $('#app-container').html('');
-};
-
 const allCitiesClick = () => {
   $('.all_cities').on('click', (event) => {
     event.preventDefault();

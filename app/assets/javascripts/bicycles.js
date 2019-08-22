@@ -1,8 +1,3 @@
-$(() => {
-//  clickAllBicycles();
-  newBicycleSubmission();
-})
-
 const newBicycleSubmission = () => {
   $('.new_bicycle').on('submit', function(event) {
     event.preventDefault();
