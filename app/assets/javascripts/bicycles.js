@@ -71,7 +71,7 @@ Bicycle.prototype.formatShow = function() {
   <p>Size: ${this.size}</p>
   <p>Colour: ${this.colour}</p>
   <p>Price: ${this.price}</p>
-  <p>Location: ${this.neighborhood}, ${this.city}, ${this.country}</p>
+  <p>Location: ${this.neighborhood.name}, ${this.city.name}, ${this.country.name}</p>
   `;
 
   return bicycleHtml;
