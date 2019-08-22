@@ -48,25 +48,11 @@ const cityClick = () => {
   });
 };
 
-
-//  $(document).on('click', '.js-next-city', (event) => {
-//    event.preventDefault()
-//    let id = $(this).attr('data-id')
-//    console.log(id)
-//    fetch(`cities/${id}/next`)
-//  })
-
-//  $(document).on('click', '.js-previous-city', (event) => {
-//    event.preventDefault()
-//    let id = $(this).attr('data-id')
-//    console.log(id)
-//  })
-
 function City(object) {
   this.id = object.id;
   this.name = object.name;
   this.country = object.country;
-}
+};
 
 City.prototype.formatIndex = function() {
   let cityHtml = `<li>
@@ -75,7 +61,7 @@ City.prototype.formatIndex = function() {
     </li>
   `;
   return cityHtml;
-}
+};
 
 City.prototype.formatShow = function() {
   let cityHtml = `
@@ -86,4 +72,4 @@ City.prototype.formatShow = function() {
     <br><br>
   `;
   return cityHtml;
-}
+};
