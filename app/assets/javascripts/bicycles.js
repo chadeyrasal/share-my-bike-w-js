@@ -1,24 +1,39 @@
+const rootUrl = 'http://localhost:3000/';
+
 $(() => {
-  bicycleClickHandlers();
+  clickAllBicycles();
+  newBicycleSubmission();
 })
 
-const bicycleClickHandlers = () => {
+const clickAllBicycles = () => {
   $('.city_bicycles').on('click', function(event) {
     event.preventDefault();
-    let id = $(this).attr('data-id')
-    history.pushState(null, null, `${id}/bicycles`);
+    let cityId = $(this).attr('data-id');
+    let url = rootUrl + 'cities/' + cityId + '/bicycles';
+    history.pushState(null, null, url);
     fetch(`bicycles.json`)
       .then(response => response.json())
       .then(bicycles => {
-        $('#app-container').html('');
+        clearDom();
         bicycles.forEach((bicycle) => {
           let newBicycle = new Bicycle(bicycle);
           let bicycleHtml = newBicycle.formatIndex();
           $('#app-container').append(bicycleHtml);
-        })
-      })
-  })
-}
+        });
+      });
+  });
+};
+
+const newBicycleSubmission = () => {
+  $('.new_bicycle').on('submit', function(event) {
+    event.preventDefault();
+    const values = $(this).serialize();
+    $.post('/bicycles', values)
+      .done(function(data) {
+
+      });
+  });
+};
 
 function Bicycle(object) {
   this.id = object.id;
