@@ -1,5 +1,7 @@
 <h2>New bicycle</h2>
 
+<section class="new_bicycle bicycle-user-id" data-bicycle-user-id=<%=@user.id %>>
+
 <%= form_for [@user, @bicycle] do |f| %>
 
   <%= render "bicycles/bicycle_form", f: f %>
@@ -24,3 +26,5 @@
   </div>
 
 <% end %>
+
+</section>
