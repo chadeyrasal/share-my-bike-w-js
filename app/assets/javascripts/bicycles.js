@@ -28,10 +28,14 @@ const newBicycleSubmission = () => {
   $('.new_bicycle').on('submit', function(event) {
     event.preventDefault();
     const values = $(this).serialize();
-    $.post('/bicycles', values)
-      .done(function(data) {
-        console.log(data);
-      });
+    let userId = $('.bicycle-user-id').data('bicycle-user-id')
+    let postUrl = rootUrl + 'users/' + userId + '/bicycles'
+    $.post(postUrl, values).done(function(data) {
+      clearDom();
+      const newBicycle = new Bicycle(data);
+      const bicycleHtml = newBicycle.formatShow();
+      $('#app-container').append(bicycleHtml);
+    });
   });
 };
 
@@ -58,3 +62,17 @@ Bicycle.prototype.formatIndex = function() {
   `;
   return bicycleHtml;
 }
+
+Bicycle.prototype.formatShow = function() {
+  let bicycleHtml = `
+  <h4>${this.title}</h4>
+  <p>${this.description}</p>
+  <p>Type: ${this.bicycle_type}</p>
+  <p>Size: ${this.size}</p>
+  <p>Colour: ${this.colour}</p>
+  <p>Price: ${this.price}</p>
+  <p>Location: ${this.neighborhood}, ${this.city}, ${this.country}</p>
+  `;
+
+  return bicycleHtml;
+};
