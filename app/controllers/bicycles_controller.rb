@@ -30,8 +30,9 @@ class BicyclesController < ApplicationController
     @bicycle.city = @bicycle.country.cities.find_or_create_by(name: params[:bicycle][:city]) unless params[:bicycle][:city] == ""
     @bicycle.neighborhood = @bicycle.city.neighborhoods.find_or_create_by(name: params[:bicycle][:neighborhood]) unless params[:bicycle][:neighborhood] == ""
     if @bicycle.save
-      flash[:success] = "Your new bicycle was successfully created"
-      redirect_to bicycle_path(@bicycle)
+      #flash[:success] = "Your new bicycle was successfully created"
+      #redirect_to bicycle_path(@bicycle)
+      render json: @bicycle
     else
       render :new
     end
