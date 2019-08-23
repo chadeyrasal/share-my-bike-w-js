@@ -63,10 +63,6 @@ class BicyclesController < ApplicationController
     end
   end
 
-  def luxurious
-    @bicycles = Bicycle.luxurious
-  end
-
 
   private
 
