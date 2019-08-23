@@ -25,9 +25,9 @@
 
 ### Read Me file contains:
 
-[ ] Application Description
+[X] Application Description
 
-[ ] Installation guide (e.g. fork and clone repo, migrate db, bundle install, etc)
+[X] Installation guide (e.g. fork and clone repo, migrate db, bundle install, etc)
 
 [X] Contributors guide (e.g. file an issue, file an issue with a pull request, etc)
 
