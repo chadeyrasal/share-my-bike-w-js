@@ -2,7 +2,9 @@
 
 Share My Bike is a Rails web application, with Facebook authentication and BCrypt password encryption. On Share My Bike you can browse through cities and neighborhoods and view bicycles that are available to rent. The goal is that you rent a bicycle from someone just like yourself in a city or country that you are visiting. This way, you do not pollute, you can easily explore the area you are in, and you get to meet locals when getting your bike!
 
-You can read the blog post I wrote about this app <a href="https://chadeyrasal.github.io/share_my_bike_a_rails_project">here</a>
+This JavaScript enhanced version offers the same capabilities but rendered dynamically via JavaScript.
+
+You can read the blog post I wrote about this app <a href="https://chadeyrasal.github.io/share_my_bike_with_js_a_rails_and_javascript_project">here</a>
 
 
 # Installation
@@ -10,14 +12,20 @@ You can read the blog post I wrote about this app <a href="https://chadeyrasal.g
 First of all, you should clone the repository locally
 
 ```
-$ git clone https://github.com/chadeyrasal/share-my-bike-2
-$ cd share-my-bike-2
+$ git clone git@github.com:chadeyrasal/share-my-bike-w-js.git
+$ cd share-my-bike-w-js
 ```
 
 Then install the project's dependencies by running bundle
 
 ```
 $ bundle install
+```
+
+After that, populate the database by running the seeds file. Make sure to create passwords for the users listed in the file.
+
+```
+$ rake db:seed
 ```
 
 And finally start the app by starting the Rails server and visit http://localhost:3000/
