@@ -31,8 +31,6 @@ Bicycle.prototype.formatIndex = function() {
   let bicycleHtml = `<li>
     <a href="/bicycles/${this.id}"><strong>${this.title}</strong></a><br>
     Type: ${this.bicycle_type}<br>
-    Size: ${this.size}<br>
-    Colour: ${this.colour}<br>
     Price: ${this.price}<br>
     Location: ${this.neighborhood.name} (${this.city.name}, ${this.country.name})
     </li>
