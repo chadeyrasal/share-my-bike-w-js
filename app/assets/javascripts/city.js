@@ -69,6 +69,7 @@ City.prototype.formatIndex = function() {
 City.prototype.formatShow = function() {
   let cityHtml = `
     <h2>${this.name}</h2>
+    <h3>${this.country.name}</h3>
     <h4>A selection of bicycles in the city: </h4>
   `;
   return cityHtml;
