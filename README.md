@@ -4,7 +4,7 @@ Share My Bike is a Rails web application, with Facebook authentication and BCryp
 
 This JavaScript enhanced version offers the same capabilities but rendered dynamically via JavaScript.
 
-You can read the blog post I wrote about this app <a href="https://chadeyrasal.github.io/share_my_bike_with_js_a_rails_and_javascript_project">here</a>
+You can read the blog post I wrote about this app <a href="https://medium.com/@annelaure.developer/adding-javascript-features-to-a-rails-web-application-14fb281a1ba1?sk=49bd84344661c0d73a7c176309e89ac2">here</a>
 
 
 # Installation
