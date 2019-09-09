@@ -4,6 +4,7 @@ $(() => {
   allCitiesClick();
   cityClick();
   newBicycleSubmission();
+  sortCities();
 });
 
 const clearDom = () => {

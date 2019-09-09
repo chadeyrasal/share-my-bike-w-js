@@ -51,6 +51,32 @@ const getCityBicycles = (city) => {
   });
 };
 
+const sortCities = () => {
+  $('.sort-button').on('click', () => {
+    fetch('/cities.json')
+      .then(response => response.json())
+      .then(cities => {
+        clearDom();
+        cities.sort(function(a, b) {
+          let nameA = a.name.toUpperCase();
+          let nameB = b.name.toUpperCase();
+          if (nameA < nameB) {
+            return -1;
+          } else if (nameA > nameB) {
+            return 1;
+          } else {
+            return 0;
+          }
+        });
+        cities.forEach(city => {
+          let newCity = new City(city);
+          let cityHtml = newCity.formatIndex();
+          $('#app-container').append(cityHtml);
+        });
+      });
+  });
+};
+
 function City(object) {
   this.id = object.id;
   this.name = object.name;

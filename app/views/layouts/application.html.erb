@@ -15,6 +15,7 @@
     <div class="navbar">
       <%= link_to "Home", root_path %>
       <%= link_to "Cities", cities_path, class: "all_cities" %>
+      <button type="button" class="sort-button">Sort!</button>
       <% if logged_in? %>
         <%= link_to "Add a bicycle", new_user_bicycle_path(current_user) %>
         <%= link_to "My account", user_path(current_user) %>
