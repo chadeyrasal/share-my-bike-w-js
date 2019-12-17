@@ -3,6 +3,7 @@ class BicyclesController < ApplicationController
   before_action :redirect_unless_logged_in, only: [:new, :edit]
   before_action :set_and_check_user, only: [:new, :create, :show, :edit]
   before_action :set_bicycle, only: [:show, :edit, :update]
+  skip_before_action :verify_authenticity_token, :only => :create
 
   def index
     if params[:city_id]
